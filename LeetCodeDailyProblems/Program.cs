@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Solution<string, int> obj = new Solution921();
+            var obj = new Solution2530();
             obj.Run();
         }
     }
