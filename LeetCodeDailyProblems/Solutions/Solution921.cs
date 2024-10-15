@@ -1,41 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace LeetCodeDailyProblems.Solutions;
 
-namespace LeetCodeDailyProblems.Solutions
+internal class Solution921 : Solution<string, int>
 {
-    internal class Solution921 : Solution<string, int>
+    #region Algos
+    public int MinAddToMakeValid(string s)
     {
-        public int MinAddToMakeValid(string s)
+        int ans = 0;
+        Stack<char> stack = new Stack<char>();
+        foreach (char c in s)
         {
-            int ans = 0;
-            Stack<char> stack = new Stack<char>();
-            foreach (char c in s)
+            if (c == ')')
             {
-                if (c == ')')
-                {
-                    if (!stack.TryPeek(out char topChar) || topChar != '(') ans++;
-                    else stack.Pop();
-                }
-                else stack.Push(c);
+                if (!stack.TryPeek(out char topChar) || topChar != '(') ans++;
+                else stack.Pop();
             }
-
-            return ans + stack.Count;
+            else stack.Push(c);
         }
 
-        public override int Execute(string input)
-        {
-            return MinAddToMakeValid(input);
-        }
+        return ans + stack.Count;
+    }
+    #endregion
 
-        public override IEnumerable<string> TestCases()
-        {
-            return new List<string>() {
-                "())",
-                "((("
-            };
-        }
+    public override int Execute(string input)
+    {
+        return MinAddToMakeValid(input);
+    }
+
+    public override IEnumerable<string> TestCases()
+    {
+        return new List<string>() {
+            "())",
+            "((("
+        };
     }
 }
