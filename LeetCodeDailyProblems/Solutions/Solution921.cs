@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeetCodeDailyProblems
+namespace LeetCodeDailyProblems.Solutions
 {
     internal class Solution921 : Solution<string, int>
     {
@@ -16,7 +16,7 @@ namespace LeetCodeDailyProblems
             {
                 if (c == ')')
                 {
-                    if ((!stack.TryPeek(out char topChar) || topChar != '(')) ans++;
+                    if (!stack.TryPeek(out char topChar) || topChar != '(') ans++;
                     else stack.Pop();
                 }
                 else stack.Push(c);
