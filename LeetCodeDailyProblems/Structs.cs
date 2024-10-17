@@ -21,3 +21,25 @@ internal struct IntArray_Num
         return sb.ToString();
     }
 };
+
+internal struct IntArray2D
+{
+    public int[][] ints { get; private set; }
+
+    public IntArray2D(int[][] _ints)
+    {
+        ints = _ints;
+    }
+
+    public override string ToString()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.Append("[");
+        foreach (var row in ints)
+        {
+            sb.Append($"[{string.Join(", ", row)}], ");
+        }
+        sb.Append("]");
+        return sb.ToString();
+    }
+};
