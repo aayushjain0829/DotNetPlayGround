@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LeetCodeDailyProblems.Solutions
 {
-    internal class Solution1405 : Solution<ListToString<int>, string>
+    internal class Solution1405 : Solution<int, int, int, string>
     {
         #region Algos
         private string LongestDiverseString(int a, int b, int c)
@@ -52,18 +52,18 @@ namespace LeetCodeDailyProblems.Solutions
         }
         #endregion
 
-        public override string Execute(ListToString<int> input)
+        public override string Execute(int input1, int input2, int input3)
         {
-            return LongestDiverseString(input[0], input[1], input[2]);
+            return LongestDiverseString(input1, input2, input3);
         }
 
-        public override IEnumerable<ListToString<int>> TestCases()
+        public override IEnumerable<(int, int, int)> TestCases()
         {
-            return new List<ListToString<int>>()
+            return new List<(int, int, int)>()
             {
-                new ListToString<int>() { 1, 1, 7 },
-                new ListToString<int>() { 7, 1, 0 },
-                new ListToString<int>() { 7, 7, 7 }
+                new (1, 1, 7),
+                new (7, 1, 0),
+                new (7, 7, 7)
             };
         }
     }

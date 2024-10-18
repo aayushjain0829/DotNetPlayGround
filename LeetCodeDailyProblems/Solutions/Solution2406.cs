@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LeetCodeDailyProblems.Solutions
 {
-    internal class Solution2406 : Solution<IntArray2D, int>
+    internal class Solution2406 : Solution<CustomEnumerable<CustomEnumerable<int>>, int>
     {
         #region Algos
         private int MinGroups(int[][] intervals)
@@ -28,17 +28,23 @@ namespace LeetCodeDailyProblems.Solutions
         }
         #endregion
 
-        public override int Execute(IntArray2D input)
+        public override int Execute(CustomEnumerable<CustomEnumerable<int>> input)
         {
-            return MinGroups(input.ints);
+            return MinGroups(input.Select(item => item.ToArray()).ToArray());
         }
 
-        public override IEnumerable<IntArray2D> TestCases()
+        public override IEnumerable<CustomEnumerable<CustomEnumerable<int>>> TestCases()
         {
-            return new List<IntArray2D> {
-                new IntArray2D([[5, 10], [6, 8], [1, 5], [2, 3], [1, 10]]),
-                new IntArray2D([[1, 3], [5, 6], [8, 10], [11, 13]]),
+            var testCases = new List<int[][]> {
+                new int[][] {[5, 10], [6, 8], [1, 5], [2, 3], [1, 10] },
+                new int[][] {[1, 3], [5, 6], [8, 10], [11, 13]}
             };
+
+            return testCases.Select(array =>
+                new CustomEnumerable<CustomEnumerable<int>>(
+                    array.Select(innerArray => new CustomEnumerable<int>(innerArray))
+                )
+            ).ToList();
         }
     }
 }

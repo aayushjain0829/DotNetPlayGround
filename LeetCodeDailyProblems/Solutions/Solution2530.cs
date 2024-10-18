@@ -1,6 +1,6 @@
 ﻿namespace LeetCodeDailyProblems.Solutions;
 
-internal class Solution2530 : Solution<IntArray_Num, long>
+internal class Solution2530 : Solution<CustomEnumerable<int>, int, long>
 {
     #region Algos
     public long MaxKelements(int[] nums, int k)
@@ -21,17 +21,17 @@ internal class Solution2530 : Solution<IntArray_Num, long>
     }
     #endregion
 
-    public override long Execute(IntArray_Num input)
+    public override long Execute(CustomEnumerable<int> input1, int input2)
     {
-        return MaxKelements(input.nums, input.k);
+        return MaxKelements(input1.ToArray(), input2);
     }
 
-    public override IEnumerable<IntArray_Num> TestCases()
+    public override IEnumerable<(CustomEnumerable<int>, int)> TestCases()
     {
-        return new List<IntArray_Num>()
+        return new List<(CustomEnumerable<int>, int)>()
         {
-            new IntArray_Num (new int[]{ 10,10,10,10,10 }, 5),
-            new IntArray_Num (new int[]{ 1,10,3,3,3 }, 3)
+            new (new CustomEnumerable<int>([10,10,10,10,10]), 5),
+            new (new CustomEnumerable<int>([1,10,3,3,3]), 3)
         };
     }
 }
