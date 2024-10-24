@@ -10,7 +10,7 @@ internal abstract class Solution<In, Out>
     {
         foreach (var testcase in TestCases())
         {
-            Console.WriteLine($"Input: \n\n{testcase}\n\nOutput: {Execute(testcase)}\n");
+            Console.WriteLine($"Input: \n\n{testcase?.ToString() ?? "null"}\n\nOutput: {Execute(testcase)}\n");
         }
     }
 }
@@ -25,7 +25,7 @@ internal abstract class Solution<In1, In2, Out>
     {
         foreach (var testcase in TestCases())
         {
-            Console.WriteLine($"Input: \n\n{testcase.Item1}\n{testcase.Item2}\n\nOutput: {Execute(testcase.Item1, testcase.Item2)}\n");
+            Console.WriteLine($"Input: \n\n{testcase.Item1?.ToString() ?? "null"}\n{testcase.Item2?.ToString() ?? "null"}\n\nOutput: {Execute(testcase.Item1, testcase.Item2)}\n");
         }
     }
 }
@@ -40,7 +40,7 @@ internal abstract class Solution<In1, In2, In3, Out>
     {
         foreach (var testcase in TestCases())
         {
-            Console.WriteLine($"Input: \n\n{testcase.Item1}\n{testcase.Item2}\n{testcase.Item3}\n\nOutput: {Execute(testcase.Item1, testcase.Item2, testcase.Item3)}\n");
+            Console.WriteLine($"Input: \n\n{testcase.Item1?.ToString() ?? "null"}\n{testcase.Item2?.ToString() ?? "null"}\n{testcase.Item3?.ToString() ?? "null"}\n\nOutput: {Execute(testcase.Item1, testcase.Item2, testcase.Item3)}\n");
         }
     }
 }
