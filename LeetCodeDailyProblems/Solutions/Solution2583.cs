@@ -1,8 +1,6 @@
-﻿using LeetCodeDailyProblems.TreeNodes.Int;
+﻿namespace LeetCodeDailyProblems.Solutions;
 
-namespace LeetCodeDailyProblems.Solutions;
-
-internal class Solution2583 : Solution<TreeNode<int>, int, long>
+internal class Solution2583 : Solution<TreeNode, int, long>
 {
     #region Algos
     private long KthLargestLevelSum(TreeNode root, int k)
@@ -31,16 +29,16 @@ internal class Solution2583 : Solution<TreeNode<int>, int, long>
     }
     #endregion
 
-    public override long Execute(TreeNode<int> input1, int input2)
+    public override long Execute(TreeNode input1, int input2)
     {
-        return KthLargestLevelSum(new TreeNode(input1.val, input1.left, input1.right), input2);
+        return KthLargestLevelSum(input1, input2);
     }
 
-    public override IEnumerable<(TreeNode<int>, int)> TestCases()
+    public override IEnumerable<(TreeNode, int)> TestCases()
     {
         return [
-            (new TreeNode<int>([5,8,9,2,1,3,7,4,6]), 2),
-            (new TreeNode<int>([1,2,null,3]), 1)
+            (new TreeNode([5,8,9,2,1,3,7,4,6]), 2),
+            (new TreeNode([1,2,null,3]), 1)
         ];
     }
 }

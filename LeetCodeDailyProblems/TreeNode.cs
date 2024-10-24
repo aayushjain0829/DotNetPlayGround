@@ -2,36 +2,36 @@
 
 namespace LeetCodeDailyProblems;
 
-internal class TreeNode<T> where T : struct
+internal class TreeNode
 {
-    public T val;
-    public TreeNode<T>? left;
-    public TreeNode<T>? right;
+    internal int val;
+    internal TreeNode? left;
+    internal TreeNode? right;
 
-    public TreeNode(T val, TreeNode<T>? left = null, TreeNode<T>? right = null)
+    public TreeNode(int val, TreeNode? left = null, TreeNode? right = null)
     {
         this.val = val;
         this.left = left;
         this.right = right;
     }
 
-    public TreeNode(IEnumerable<T?> arr)
+    public TreeNode(IEnumerable<int?> arr)
     {
         if (arr == null || !arr.Any())
             throw new ArgumentException("Array cannot be null or empty");
 
         val = arr.First() ?? throw new ArgumentException("First element cannot be null");
-        Queue<TreeNode<T>> queue = new();
+        Queue<TreeNode> queue = new();
         queue.Enqueue(this);
 
         for (int i = 1; i < arr.Count();)
         {
-            TreeNode<T> current = queue.Dequeue();
-            T? value = arr.ElementAt(i++);
+            TreeNode current = queue.Dequeue();
+            int? value = arr.ElementAt(i++);
 
             if (value != null)
             {
-                current.left = new TreeNode<T>((T)value);
+                current.left = new TreeNode((int)value);
                 queue.Enqueue(current.left);
             }
 
@@ -41,7 +41,7 @@ internal class TreeNode<T> where T : struct
 
                 if (value != null)
                 {
-                    current.right = new TreeNode<T>((T)value);
+                    current.right = new TreeNode((int)value);
                     queue.Enqueue(current.right);
                 }
             }
@@ -51,13 +51,13 @@ internal class TreeNode<T> where T : struct
     public override string ToString()
     {
         var sb = new StringBuilder();
-        Queue<TreeNode<T>?> queue = new();
+        Queue<TreeNode?> queue = new();
         queue.Enqueue(this);
 
         sb.Append("[");
         while (queue.Count > 0 && queue.Any(node => node != null))
         {
-            TreeNode<T>? node = queue.Dequeue();
+            TreeNode? node = queue.Dequeue();
 
             if (node == null)
             {
