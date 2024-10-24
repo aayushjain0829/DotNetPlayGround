@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace LeetCodeDailyProblems;
 
@@ -24,7 +20,7 @@ internal class TreeNode<T> where T : struct
         if (arr == null || !arr.Any())
             throw new ArgumentException("Array cannot be null or empty");
 
-        this.val = arr.First() ?? throw new ArgumentException("First element cannot be null");
+        val = arr.First() ?? throw new ArgumentException("First element cannot be null");
         Queue<TreeNode<T>> queue = new();
         queue.Enqueue(this);
 
