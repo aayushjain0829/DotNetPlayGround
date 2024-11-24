@@ -1,1 +1,1 @@
-﻿SingleResponsibilityDemo.Execute();
+﻿DependencyInversionDemo.Execute();
