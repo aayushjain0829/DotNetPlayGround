@@ -1,0 +1,1 @@
+﻿SingleResponsibilityDemo.Execute();
