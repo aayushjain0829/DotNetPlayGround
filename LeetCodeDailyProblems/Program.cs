@@ -1,1 +1,1 @@
-﻿new Solution2381().Run();
+﻿new Solution1769().Run();
